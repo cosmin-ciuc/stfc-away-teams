@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+.Common {
+  color: gray;
+  font-weight: bold;
+}
+
+.Uncommon {
+  color: green;
+  font-weight: bold;
+}
+
+.Rare {
+  color:royalblue;
+  font-weight: bold;
+}
+
+.Epic {
+  color: rgb(163, 67, 214);
+  font-weight: bold;
+}
+
+.Trait {
+  font-weight: bolder;
+  background-color: goldenrod;
+}

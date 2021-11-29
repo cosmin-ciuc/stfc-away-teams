@@ -1,0 +1,36 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "standard"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 13,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            4,
+            {
+              "SwitchCase": 1
+            }
+        ],        
+        "no-unexpected-multiline": "error",
+        "no-unreachable": "error",
+        "no-unused-vars": "error",        
+        "quotes": ["error", "single"],
+        "semi": ["error", "always"],
+        "space-before-function-paren": ["error", "never"],  
+        "strict": 1      
+    }
+}
