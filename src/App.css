@@ -61,3 +61,15 @@
   font-weight: bolder;
   background-color: goldenrod;
 }
+
+.card-title {
+  font-size: smaller;
+}
+
+.card-subtitle {
+  font-size: small;
+}
+
+.card-body {
+  padding: 2px;
+}

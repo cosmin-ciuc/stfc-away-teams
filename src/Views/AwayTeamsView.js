@@ -1,8 +1,6 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Stack from 'react-bootstrap/Stack';
+import { Row, Col, Stack, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { AwayTeamSelector } from '../Components/AwayTeamSelector';
 import { AwayTeamMissionTrait } from '../Components/AwayTeamMissionTrait';
 import { allOfficers } from '../Models/officer';
@@ -29,17 +27,22 @@ export class AwayTeamsView extends React.Component {
                     <Col xs={3}>
                         <Stack>
                             <AwayTeamSelector onSelectedMissionChange={this.onSelectedMissionChange}/>
-                            <Stack direction="horizontal" gap={2}>
+                            <Stack direction="horizontal" gap="2">
                                 <div>Rarity:</div>
                                 {this.state.selectedMission && <div className={this.state.selectedMission.rarity}>{this.state.selectedMission.rarity}</div>}
                             </Stack>
-                            <Stack direction="horizontal" gap={2}>
+                            <Stack direction="horizontal" gap="2">
                                 <div>Rewards:</div>
-                                {this.state.selectedMission && <div>{this.state.selectedMission.primaryRewards + ', ' + this.state.selectedMission.secondaryRewards}</div>}
+                                {this.state.selectedMission && (
+                                    <ListGroup variant="flush">
+                                        <ListGroupItem><img src={'images/rewards/' + this.state.selectedMission.primaryRewards + '.png'} height="24px"/>&nbsp;{this.state.selectedMission.primaryRewards}</ListGroupItem>
+                                        {this.state.selectedMission.secondaryRewards !== '' && <ListGroupItem><img src={'images/rewards/' + this.state.selectedMission.secondaryRewards + '.png'} height="24px"/>&nbsp;{this.state.selectedMission.secondaryRewards}</ListGroupItem> }
+                                    </ListGroup>
+                                )}
                             </Stack>
-                            <Stack direction="horizontal" gap={2}>
+                            <Stack direction="horizontal" gap="2">
                                 <div>Critical rewards:</div>
-                                {this.state.selectedMission && <div>{this.state.selectedMission.criticalRewards}</div>}
+                                {this.state.selectedMission && <div><img src={'images/rewards/' + this.state.selectedMission.criticalRewards + '.png'} height="24px"/>&nbsp;{this.state.selectedMission.criticalRewards}</div>}
                             </Stack>
                         </Stack>
                     </Col>
