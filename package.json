@@ -1,5 +1,5 @@
 {
-  "name": "react-js-app1",
+  "name": "stfc-away-teams",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -18,6 +18,9 @@
     "typescript": "^4.4.3",
     "web-vitals": "^1.0.1",
     "yarn": "^1.22.11"
+  },
+  "config": {
+    "network-timeout": 300000
   },
   "scripts": {
     "start": "react-scripts start",
@@ -53,5 +56,8 @@
     "eslint-plugin-promise": "^5.1.1",
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-native": "^3.11.0"
+  },
+  "engines": {
+    "node": "^14.17.5"
   }
 }
