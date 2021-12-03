@@ -58,6 +58,6 @@
     "eslint-plugin-react-native": "^3.11.0"
   },
   "engines": {
-    "node": "^14.17.5"
+    "node": ">=14.17.0"
   }
 }
