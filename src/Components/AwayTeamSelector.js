@@ -28,7 +28,7 @@ export class AwayTeamSelector extends React.Component {
             return <Dropdown.Item key={i} eventKey={awayTeamMission.name} active={this.state.selected.name === awayTeamMission.name} as="SPAN" className={awayTeamMission.rarity}>{awayTeamMission.name}</Dropdown.Item>;
         });
         return (
-            <DropdownButton id="awayTeam" title={this.state.selected.name} onSelect={this.select} >
+            <DropdownButton id="awayTeam" title={this.state.selected.name} onSelect={this.select} variant="outline-dark">
                 {dropdownItems}
             </DropdownButton>
         );

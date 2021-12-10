@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import { Row, Col, Stack, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Row, Col, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { AwayTeamSelector } from '../Components/AwayTeamSelector';
 import { AwayTeamMissionTrait } from '../Components/AwayTeamMissionTrait';
 import { allOfficers } from '../Models/officer';
@@ -21,30 +21,49 @@ export class AwayTeamsView extends React.Component {
     }
 
     render() {
+        const backgroundClassName = this.state.selectedMission && this.state.selectedMission.rarity + '-bg';
+
         return (
-            <Container>
+            <Container fluid>
                 <Row>
-                    <Col xs={3}>
-                        <Stack>
-                            <AwayTeamSelector onSelectedMissionChange={this.onSelectedMissionChange}/>
-                            <Stack direction="horizontal" gap="2">
+                    <Col xs="3" className={backgroundClassName} style={{ fontSize: 'small' }}>
+                        <Row>
+                            <Col xs="3">
+                                <div>Mission:</div>
+                            </Col>
+                            <Col>
+                                <AwayTeamSelector onSelectedMissionChange={this.onSelectedMissionChange}/>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col xs="3">
                                 <div>Rarity:</div>
+                            </Col>
+                            <Col>
                                 {this.state.selectedMission && <div className={this.state.selectedMission.rarity}>{this.state.selectedMission.rarity}</div>}
-                            </Stack>
-                            <Stack direction="horizontal" gap="2">
-                                <div>Rewards:</div>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col xs="3">
+                                <div style={{ marginTop: '50%' }}>Rewards:</div>
+                            </Col>
+                            <Col>
                                 {this.state.selectedMission && (
                                     <ListGroup variant="flush">
-                                        <ListGroupItem><img src={'images/rewards/' + this.state.selectedMission.primaryRewards + '.png'} height="24px"/>&nbsp;{this.state.selectedMission.primaryRewards}</ListGroupItem>
-                                        {this.state.selectedMission.secondaryRewards !== '' && <ListGroupItem><img src={'images/rewards/' + this.state.selectedMission.secondaryRewards + '.png'} height="24px"/>&nbsp;{this.state.selectedMission.secondaryRewards}</ListGroupItem> }
+                                        <ListGroupItem className={backgroundClassName} style={{ paddingLeft: '0px' }}><img src={'images/rewards/' + this.state.selectedMission.primaryRewards + '.png'} height="32px"/>&nbsp;{this.state.selectedMission.primaryRewards}</ListGroupItem>
+                                        {this.state.selectedMission.secondaryRewards !== '' && <ListGroupItem className={backgroundClassName} style={{ paddingLeft: '0px' }}><img src={'images/rewards/' + this.state.selectedMission.secondaryRewards + '.png'} height="32px"/>&nbsp;{this.state.selectedMission.secondaryRewards}</ListGroupItem> }
                                     </ListGroup>
                                 )}
-                            </Stack>
-                            <Stack direction="horizontal" gap="2">
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col xs="3">
                                 <div>Critical rewards:</div>
-                                {this.state.selectedMission && <div><img src={'images/rewards/' + this.state.selectedMission.criticalRewards + '.png'} height="24px"/>&nbsp;{this.state.selectedMission.criticalRewards}</div>}
-                            </Stack>
-                        </Stack>
+                            </Col>
+                            <Col>
+                                {this.state.selectedMission && <div><img src={'images/rewards/' + this.state.selectedMission.criticalRewards + '.png'} height="32px"/>&nbsp;{this.state.selectedMission.criticalRewards}</div>}
+                            </Col>
+                        </Row>
                     </Col>
                     {this.state.selectedMission && this.state.selectedMission.traits.filter(trait => trait !== '').map((trait, i) => (
                         <Col key={i} xs={2}>

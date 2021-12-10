@@ -42,9 +42,17 @@
   font-weight: bold;
 }
 
+.Common-bg {
+  background-color:rgb(192, 192, 192);
+}
+
 .Uncommon {
   color: green;
   font-weight: bold;
+}
+
+.Uncommon-bg {
+  background-color: rgb(209, 248, 209); 
 }
 
 .Rare {
@@ -52,9 +60,17 @@
   font-weight: bold;
 }
 
+.Rare-bg {
+  background-color:rgb(199, 210, 255);
+}
+
 .Epic {
   color: rgb(163, 67, 214);
   font-weight: bold;
+}
+
+.Epic-bg {
+  background-color: rgb(240, 214, 255);
 }
 
 .Trait {
