@@ -26,7 +26,7 @@ export class AwayTeamsView extends React.Component {
         return (
             <Container fluid>
                 <Row>
-                    <Col xs="3" className={backgroundClassName} style={{ fontSize: 'small' }}>
+                    <Col xs="4" className={backgroundClassName} style={{ fontSize: 'small' }}>
                         <Row>
                             <Col xs="3">
                                 <div>Mission:</div>
@@ -40,28 +40,28 @@ export class AwayTeamsView extends React.Component {
                                 <div>Rarity:</div>
                             </Col>
                             <Col>
-                                {this.state.selectedMission && <div className={this.state.selectedMission.rarity}>{this.state.selectedMission.rarity}</div>}
+                                {this.state.selectedMission && <div className={this.state.selectedMission.rarity} style={{ marginLeft: '9px', fontSize: '11pt' }}>{this.state.selectedMission.rarity}</div>}
                             </Col>
                         </Row>
                         <Row>
-                            <Col xs="3">
-                                <div style={{ marginTop: '50%' }}>Rewards:</div>
+                            <Col xs="3" style={{ display: 'flex', alignItems: 'center' }}>
+                                <div>Rewards:</div>
                             </Col>
                             <Col>
                                 {this.state.selectedMission && (
                                     <ListGroup variant="flush">
-                                        <ListGroupItem className={backgroundClassName} style={{ paddingLeft: '0px' }}><img src={'images/rewards/' + this.state.selectedMission.primaryRewards + '.png'} height="32px"/>&nbsp;{this.state.selectedMission.primaryRewards}</ListGroupItem>
-                                        {this.state.selectedMission.secondaryRewards !== '' && <ListGroupItem className={backgroundClassName} style={{ paddingLeft: '0px' }}><img src={'images/rewards/' + this.state.selectedMission.secondaryRewards + '.png'} height="32px"/>&nbsp;{this.state.selectedMission.secondaryRewards}</ListGroupItem> }
+                                        <ListGroupItem className={backgroundClassName} style={{ paddingLeft: '0px' }}><img src={'images/rewards/' + this.state.selectedMission.primaryRewards + '.png'} height="56px"/><div>{this.state.selectedMission.primaryRewards}</div></ListGroupItem>
+                                        {this.state.selectedMission.secondaryRewards !== '' && <ListGroupItem className={backgroundClassName} style={{ paddingLeft: '0px' }}><img src={'images/rewards/' + this.state.selectedMission.secondaryRewards + '.png'} height="56px"/><div>{this.state.selectedMission.secondaryRewards}</div></ListGroupItem> }
                                     </ListGroup>
                                 )}
                             </Col>
                         </Row>
                         <Row>
-                            <Col xs="3">
+                            <Col xs="3" style={{ marginTop: '20px' }}>
                                 <div>Critical rewards:</div>
                             </Col>
                             <Col>
-                                {this.state.selectedMission && <div><img src={'images/rewards/' + this.state.selectedMission.criticalRewards + '.png'} height="32px"/>&nbsp;{this.state.selectedMission.criticalRewards}</div>}
+                                {this.state.selectedMission && <div><img src={'images/rewards/' + this.state.selectedMission.criticalRewards + '.png'} height="56px"/><div>{this.state.selectedMission.criticalRewards}</div></div>}
                             </Col>
                         </Row>
                     </Col>

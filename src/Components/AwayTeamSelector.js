@@ -3,6 +3,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
 import AwayTeamMission, { awayTeamMissions } from '../Models/awayTeamMission';
 import PropTypes from 'prop-types';
+import { InputGroup } from 'react-bootstrap';
 
 export class AwayTeamSelector extends React.Component {
     constructor(props) {
@@ -21,16 +22,21 @@ export class AwayTeamSelector extends React.Component {
             selected: selectedMission
         });
         this.props.onSelectedMissionChange(selectedMission);
+        document.getElementById('ddMission').focus();
     }
 
     render() {
-        const dropdownItems = awayTeamMissions.map((awayTeamMission, i) => {
+        const backgroundClassName = this.state.selected.rarity + '-bg';
+        const dropdownItems = awayTeamMissions.sort().map((awayTeamMission, i) => {
             return <Dropdown.Item key={i} eventKey={awayTeamMission.name} active={this.state.selected.name === awayTeamMission.name} as="SPAN" className={awayTeamMission.rarity}>{awayTeamMission.name}</Dropdown.Item>;
         });
         return (
-            <DropdownButton id="awayTeam" title={this.state.selected.name} onSelect={this.select} variant="outline-dark">
-                {dropdownItems}
-            </DropdownButton>
+            <InputGroup size="sm" className="mb-1" id="missionInputGroup">
+                <InputGroup.Text id="lbMission" className={this.state.selected.rarity + ' ' + backgroundClassName}>{this.state.selected.name}</InputGroup.Text>
+                <DropdownButton id="ddMission" title="" onSelect={this.select} variant="outline-dark">
+                    {dropdownItems}
+                </DropdownButton>
+            </InputGroup>
         );
     }
 }
